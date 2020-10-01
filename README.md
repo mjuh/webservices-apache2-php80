@@ -22,14 +22,14 @@ Hint: If you failed to build with your current nixpkgs version, try to
 build with a tested [nixpkgs](https://github.com/NixOS/nixpkgs "Nix
 Packages collection") version.
 
-[![Build Status](https://jenkins.majordomo.ru/job/webservices/job/apache2-php74/job/master/lastBuild/badge/icon?config=webservices-apache2-php74)](https://jenkins.majordomo.ru/job/webservices/job/apache2-php74/job/master/lastBuild/badge/icon?config=webservices-apache2-php74)
+[![Build Status](https://jenkins.majordomo.ru/job/webservices/job/apache2-php80/job/master/lastBuild/badge/icon?config=webservices-apache2-php80)](https://jenkins.majordomo.ru/job/webservices/job/apache2-php80/job/master/lastBuild/badge/icon?config=webservices-apache2-php80)
 
 ## Using Apache PHP 7.4
 
 To use Apache PHP 7.4, call:
 
 ``` shell
-docker inspect docker-registry.intr/webservices/apache2-php74 | grep cmd
+docker inspect docker-registry.intr/webservices/apache2-php80 | grep cmd
 ```
 
 which will produce flags for `docker run` command as a hint.
@@ -54,7 +54,7 @@ docker run --read-only --network=host \
         -e PHP_SECURITY=/etc/phpsec/$SECURITY_LEVEL \
         --ulimit stack=-1:-1 \
         --cap-add SYS_ADMIN \
-        --security-opt apparmor:unconfined docker-registry.intr/webservices/apache2-php74:latest
+        --security-opt apparmor:unconfined docker-registry.intr/webservices/apache2-php80:latest
 ```
 before running the command you need to provide all variables:
 

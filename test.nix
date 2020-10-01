@@ -9,16 +9,16 @@ with import <nixpkgs> {
 };
 
 let
-  domain = "php74.ru";
-  phpVersion = "php" + lib.versions.major php74.version
-    + lib.versions.minor php74.version;
+  domain = "php80.ru";
+  phpVersion = "php" + lib.versions.major php80.version
+    + lib.versions.minor php80.version;
   containerStructureTestConfig = ./tests/container-structure-test.yaml;
   image = callPackage ./default.nix { inherit overlayUrl overlayRef; };
 
 in maketestPhp {
   inherit image;
   inherit debug;
-  php = php74;
+  php = php80;
   inherit containerStructureTestConfig;
   testApachePHPwithPerl = false;
   rootfs = ./rootfs;

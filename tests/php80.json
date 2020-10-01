@@ -36,18 +36,18 @@
       "PHP_OS": "Linux",
       "PHP_OS_FAMILY": "Linux",
       "PHP_SAPI": "apache2handler",
-      "DEFAULT_INCLUDE_PATH": ".:/opt/php73/lib/php",
-      "PEAR_INSTALL_DIR": "/opt/php73/lib/php",
-      "PEAR_EXTENSION_DIR": "/opt/php73/lib/php/extensions/no-debug-non-zts-20180731",
-      "PHP_EXTENSION_DIR": "/opt/php73/lib/php/extensions/no-debug-non-zts-20180731",
-      "PHP_PREFIX": "/opt/php73",
-      "PHP_BINDIR": "/opt/php73/bin",
-      "PHP_MANDIR": "/opt/php73/php/man",
-      "PHP_LIBDIR": "/opt/php73/lib/php",
-      "PHP_DATADIR": "/opt/php73/share/php",
-      "PHP_SYSCONFDIR": "/opt/php73/etc",
-      "PHP_LOCALSTATEDIR": "/opt/php73/var",
-      "PHP_CONFIG_FILE_PATH": "/opt/php73/lib",
+      "DEFAULT_INCLUDE_PATH": ".:/opt/php80/lib/php",
+      "PEAR_INSTALL_DIR": "/opt/php80/lib/php",
+      "PEAR_EXTENSION_DIR": "/opt/php80/lib/php/extensions/no-debug-non-zts-20180731",
+      "PHP_EXTENSION_DIR": "/opt/php80/lib/php/extensions/no-debug-non-zts-20180731",
+      "PHP_PREFIX": "/opt/php80",
+      "PHP_BINDIR": "/opt/php80/bin",
+      "PHP_MANDIR": "/opt/php80/php/man",
+      "PHP_LIBDIR": "/opt/php80/lib/php",
+      "PHP_DATADIR": "/opt/php80/share/php",
+      "PHP_SYSCONFDIR": "/opt/php80/etc",
+      "PHP_LOCALSTATEDIR": "/opt/php80/var",
+      "PHP_CONFIG_FILE_PATH": "/opt/php80/lib",
       "PHP_CONFIG_FILE_SCAN_DIR": "",
       "PHP_SHLIB_SUFFIX": "so",
       "PHP_EOL": "\n",
@@ -2710,8 +2710,8 @@
       "access": "4"
     },
     "extension_dir": {
-      "global_value": "/opt/php73/lib/php/extensions/",
-      "local_value": "/opt/php73/lib/php/extensions/",
+      "global_value": "/opt/php80/lib/php/extensions/",
+      "local_value": "/opt/php80/lib/php/extensions/",
       "access": "4"
     },
     "file_uploads": {
@@ -2945,8 +2945,8 @@
       "access": "7"
     },
     "include_path": {
-      "global_value": ".:/opt/php73/lib/php",
-      "local_value": ".:/opt/php73/lib/php",
+      "global_value": ".:/opt/php80/lib/php",
+      "local_value": ".:/opt/php80/lib/php",
       "access": "7"
     },
     "input_encoding": {
@@ -6098,6 +6098,6 @@
     ]
   },
   "includedFiles": [
-    "/var/www/html/php73/phpinfo-json.php"
+    "/var/www/html/php80/phpinfo-json.php"
   ]
 }
