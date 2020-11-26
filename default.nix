@@ -1,5 +1,5 @@
 { overlayUrl ? "git@gitlab.intr:_ci/nixpkgs.git"
-, overlayRef ? "php8" }:
+, overlayRef ? "php-8.0.0" }:
 
 with import <nixpkgs> {
   overlays = [
