@@ -1,11 +1,6 @@
-{ overlayUrl ? "git@gitlab.intr:_ci/nixpkgs.git"
-, overlayRef ? "php-8.0.0" }:
+{ nixpkgs ? (import ./common.nix).nixpkgs }:
 
-with import <nixpkgs> {
-  overlays = [
-    (import (builtins.fetchGit { url = overlayUrl; ref = overlayRef; }))
-  ];
-};
+with nixpkgs;
 
 let
   inherit (builtins) concatMap getEnv toJSON;
