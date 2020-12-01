@@ -1,19 +1,13 @@
-{ overlayUrl ? "git@gitlab.intr:_ci/nixpkgs.git"
-, overlayRef ? "master"
-, debug ? false }:
+{ nixpkgs ? (import ./common.nix).nixpkgs, debug ? false, ... }:
 
-with import <nixpkgs> {
-  overlays = [
-    (import (builtins.fetchGit { url = overlayUrl; ref = overlayRef; }))
-  ];
-};
+with nixpkgs;
 
 let
   domain = "php80.ru";
   phpVersion = "php" + lib.versions.major php80.version
     + lib.versions.minor php80.version;
   containerStructureTestConfig = ./tests/container-structure-test.yaml;
-  image = callPackage ./default.nix { inherit overlayUrl overlayRef; };
+  image = callPackage ./default.nix { inherit nixpkgs; };
 
 in maketestPhp {
   inherit image;
