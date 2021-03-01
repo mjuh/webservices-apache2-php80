@@ -37,3 +37,24 @@ commandTests:
     command: 'convert'
     args: [ '--version' ]
     exitCode: 0
+
+  - name: "Check openssl"
+    setup:
+      - ["openssl", "genrsa", "-out", "ca-key.pem", "4096"]
+      - ["openssl", "req", "-x509", "-new", "-nodes", "-key", "ca-key.pem", "-days", "3650", "-out", "ca.pem", "-subj", "/CN=docker-CA"]
+      - ["openssl", "genrsa", "-out", "daemon-key.pem", "4096"]
+      - ["openssl", "req", "-new", "-key", "daemon-key.pem", "-out", "daemon-cert.csr", "-subj", "/CN=docker-daemon"]
+      - ["openssl", "x509", "-req", "-in", "daemon-cert.csr", "-CA", "ca.pem", "-CAkey", "ca-key.pem", "-CAcreateserial", "-out", "daemon-cert.pem", "-days", "3650", "-extensions", "v3_req"]
+    command: "openssl"
+    args: ["x509", "-in", "daemon-cert.pem", "-text", "-noout"]
+
+    # From https://www.altlinux.org/%D0%93%D0%9E%D0%A1%D0%A2_%D0%B2_OpenSSL
+  - name: 'Проверка сертификата'
+    setup:
+      # Создаём закрытый ключ с алгоритмом ГОСТ-2012
+      - ['openssl', 'genpkey', '-algorithm', 'gost2012_256', '-pkeyopt', 'paramset:A', '-out', 'ca.key']
+      # Создаём сертификат на 365 дней
+      - ['openssl', 'req', '-new', '-x509', '-md_gost12_256', '-days', '365', '-key', 'ca.key', '-out', 'ca.cer', '-subj', '/C=RU/ST=Russia/L=Moscow/O=SuperPlat/OU=SuperPlat CA/CN=SuperPlat CA Root']
+    command: 'openssl'
+    args: ["x509", "-in", "ca.cer", "-text", "-noout"]
+    exitCode: 0

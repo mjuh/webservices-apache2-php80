@@ -48,6 +48,7 @@ pkgs.dockerTools.buildLayeredImage rec {
     zlib
     mariadbConnectorC
     logger
+    openssl-with-engine-gost
   ]
   ++ collect isDerivation php80Packages;
   config = {
@@ -59,6 +60,7 @@ pkgs.dockerTools.buildLayeredImage rec {
       "LOCALE_ARCHIVE=${locale}/lib/locale/locale-archive"
       "LC_ALL=en_US.UTF-8"
       "PERL5LIB=${mjPerlPackages.PERL5LIB}"
+      "OPENSSL_CONF=/etc/ssl/openssl.cnf"
     ];
     Labels = flattenSet rec {
       ru.majordomo.docker.arg-hints-json = builtins.toJSON php80DockerArgHints;
