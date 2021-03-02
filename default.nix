@@ -58,6 +58,7 @@ pkgs.dockerTools.buildLayeredImage rec {
       "LOCALE_ARCHIVE_2_27=${locale}/lib/locale/locale-archive"
       "LOCALE_ARCHIVE=${locale}/lib/locale/locale-archive"
       "LC_ALL=en_US.UTF-8"
+      "PERL5LIB=${mjPerlPackages.PERL5LIB}"
     ];
     Labels = flattenSet rec {
       ru.majordomo.docker.arg-hints-json = builtins.toJSON php80DockerArgHints;
