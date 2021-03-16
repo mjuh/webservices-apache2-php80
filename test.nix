@@ -134,24 +134,24 @@ in maketestPhp {
       action = "succeed";
       command = testPhpMariadbConnector { inherit pkgs; };
     })
-    (dockerNodeTest {
-      description = "Run WordPress test.";
-      action = "succeed";
-      command = wordpressScript {
-        inherit pkgs;
-        inherit domain;
-      };
-    })
-    (dockerNodeTest {
-      description = "Take WordPress screenshot";
-      action = "succeed";
-      command = builtins.concatStringsSep " " [
-        "${firefox}/bin/firefox"
-        "--headless"
-        "--screenshot=/tmp/xchg/coverage-data/wordpress.png"
-        "http://${domain}/"
-      ];
-    })
+    # (dockerNodeTest {
+    #   description = "Run WordPress test.";
+    #   action = "succeed";
+    #   command = wordpressScript {
+    #     inherit pkgs;
+    #     inherit domain;
+    #   };
+    # })
+    # (dockerNodeTest {
+    #   description = "Take WordPress screenshot";
+    #   action = "succeed";
+    #   command = builtins.concatStringsSep " " [
+    #     "${firefox}/bin/firefox"
+    #     "--headless"
+    #     "--screenshot=/tmp/xchg/coverage-data/wordpress.png"
+    #     "http://${domain}/"
+    #   ];
+    # })
     (dockerNodeTest {
       description = "Copy parser3.cgi";
       action = "succeed";
