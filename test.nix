@@ -134,24 +134,24 @@ in maketestPhp {
       action = "succeed";
       command = testPhpMariadbConnector { inherit pkgs; };
     })
-    (dockerNodeTest {
-      description = "Run WordPress test.";
-      action = "succeed";
-      command = wordpressScript {
-        inherit pkgs;
-        inherit domain;
-      };
-    })
-    (dockerNodeTest {
-      description = "Take WordPress screenshot";
-      action = "succeed";
-      command = builtins.concatStringsSep " " [
-        "${firefox}/bin/firefox"
-        "--headless"
-        "--screenshot=/tmp/xchg/coverage-data/wordpress.png"
-        "http://${domain}/"
-      ];
-    })
+    # (dockerNodeTest {
+    #   description = "Run WordPress test.";
+    #   action = "succeed";
+    #   command = wordpressScript {
+    #     inherit pkgs;
+    #     inherit domain;
+    #   };
+    # })
+    # (dockerNodeTest {
+    #   description = "Take WordPress screenshot";
+    #   action = "succeed";
+    #   command = builtins.concatStringsSep " " [
+    #     "${firefox}/bin/firefox"
+    #     "--headless"
+    #     "--screenshot=/tmp/xchg/coverage-data/wordpress.png"
+    #     "http://${domain}/"
+    #   ];
+    # })
     (dockerNodeTest {
       description = "Copy parser3.cgi";
       action = "succeed";
@@ -209,10 +209,10 @@ in maketestPhp {
 #      action = "succeed";
 #      command = "curl http://${domain}/mysqlpdoconnect.php | grep success";
 #    })
-    (dockerNodeTest {
-      description = "deepdiff iterable_item_removed";
-      action = "succeed";
-      command = "jq .iterable_item_removed /tmp/xchg/coverage-data/deepdiff-with-excludes.json ; jq .iterable_item_removed /tmp/xchg/coverage-data/deepdiff-with-excludes.json | grep null ";
-    })
+    # (dockerNodeTest {
+    #   description = "deepdiff iterable_item_removed";
+    #   action = "succeed";
+    #   command = "jq .iterable_item_removed /tmp/xchg/coverage-data/deepdiff-with-excludes.json ; jq .iterable_item_removed /tmp/xchg/coverage-data/deepdiff-with-excludes.json | grep null ";
+    # })
   ];
 } { }

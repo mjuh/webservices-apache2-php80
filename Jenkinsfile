@@ -1,1 +1,1 @@
-buildWebService(publishOnInternet: true, flake: true, nixArgs: ["--impure"])
+buildWebService(publishOnInternet: true, flake: true)
