@@ -1,6 +1,6 @@
-# Apache PHP 7.4
+# Apache PHP 8.0
 
-Docker container with Apache PHP 7.4 build by [Nix package manager](https://nixos.org/).
+Docker container with Apache PHP 8.0 build by [Nix package manager](https://nixos.org/).
 
 ## Prerequisites
 
@@ -9,9 +9,9 @@ Before you begin, ensure you have met the following requirements:
 * You have a `<Linux/Mac>` machine.
 * You have installed the latest version of [Nix package manager](https://nixos.org/) and [Docker daemon](https://www.docker.com).
 
-## Building Apache PHP 7.4
+## Building Apache PHP 8.0
 
-To build Apache PHP 7.4, follow these steps:
+To build Apache PHP 8.0, follow these steps:
 
 Linux and macOS:
 ``` shell
@@ -24,9 +24,9 @@ Packages collection") version.
 
 [![Build Status](https://jenkins.majordomo.ru/job/webservices/job/apache2-php80/job/master/lastBuild/badge/icon?config=webservices-apache2-php80)](https://jenkins.majordomo.ru/job/webservices/job/apache2-php80/job/master/lastBuild/badge/icon?config=webservices-apache2-php80)
 
-## Using Apache PHP 7.4
+## Using Apache PHP 8.0
 
-To use Apache PHP 7.4, call:
+To use Apache PHP 8.0, call:
 
 ``` shell
 docker inspect docker-registry.intr/webservices/apache2-php80 | grep cmd
@@ -62,9 +62,9 @@ before running the command you need to provide all variables:
 * `$SECURITY_LEVEL` should be one of: `default`, `unsafe`, `hardened`, `hardened-nochmod`.
 * `$SOCKET_HTTP_PORT` any free port on your computer, e.g. `8074`.
 
-## Contributing to Apache PHP 7.4
+## Contributing to Apache PHP 8.0
 
-To contribute to Apache PHP 7.4, follow these steps:
+To contribute to Apache PHP 8.0, follow these steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
