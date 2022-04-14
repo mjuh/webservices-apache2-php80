@@ -49,8 +49,13 @@ pkgs.dockerTools.buildLayeredImage rec {
     mariadbConnectorC
     logger
     openssl-with-engine-gost
-  ]
-  ++ collect isDerivation php80Packages;
+
+    php80-imagick
+    php80-memcached
+    php80-redis
+    php80-rrd
+    php80-timezonedb
+  ];
   config = {
     Entrypoint = [ "${rootfs}/init" ];
     Env = [
